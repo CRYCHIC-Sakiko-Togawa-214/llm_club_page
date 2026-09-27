@@ -56,20 +56,6 @@ const navItems = [
   { id: 'events', name: '活动安排' },
 ]
 
-function Github({ size = 20 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1.01 1.72 2.64 1.22 3.28.93.1-.73.4-1.22.72-1.5-2.5-.28-5.12-1.25-5.12-5.57 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.46 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.33-2.63 5.29-5.14 5.57.4.35.77 1.03.77 2.08v3.1c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z" />
-    </svg>
-  )
-}
-
 function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
     <a
@@ -660,15 +646,6 @@ function App() {
             ))}
           </nav>
           <div className="header-actions">
-            <a
-              className="github-link icon-button"
-              href={club.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="访问社团 GitHub 仓库"
-            >
-              <Github size={20} />
-            </a>
             <button
               className="button button-primary header-join"
               onClick={() => openJoin()}
@@ -1024,14 +1001,6 @@ function App() {
                 </h2>
                 <p>从解决一个小问题开始，在真实的创造中学习。</p>
               </div>
-              <a
-                className="text-link"
-                href={club.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Github size={17} /> 社团 GitHub <ArrowUpRight size={16} />
-              </a>
             </div>
             <div className="project-filter-row">
               <div
@@ -1407,9 +1376,6 @@ function App() {
             </div>
             <div className="footer-links">
               <span>与我们连接</span>
-              <a href={club.github} target="_blank" rel="noreferrer">
-                GitHub <ArrowUpRight size={14} />
-              </a>
               <a href="#events">活动安排</a>
               <button onClick={() => openJoin()}>
                 加入社团 <ArrowUpRight size={14} />

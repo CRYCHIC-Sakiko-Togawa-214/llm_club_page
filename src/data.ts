@@ -5,7 +5,6 @@ export const club = {
   name: '兰州大学大模型社团',
   englishName: 'LZU LLM CLUB',
   motto: '开源共享，求真创新',
-  github: 'https://github.com/CRYCHIC-Sakiko-Togawa-214/llm_club_page',
   recruitment: {
     groupNumber: '',
     groupLink: '',

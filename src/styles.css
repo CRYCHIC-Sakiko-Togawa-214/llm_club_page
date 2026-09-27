@@ -285,9 +285,6 @@ button:focus-visible {
   align-items: center;
   gap: 19px;
 }
-.github-link {
-  color: #5d687b;
-}
 .header-join {
   font-size: 12px;
   min-height: 38px;
@@ -2700,9 +2697,6 @@ h2 {
     font-size: 11px;
     gap: 9px;
   }
-  .github-link {
-    width: 29px;
-  }
   .hero-layout {
     min-height: 577px;
     padding-top: 32px;
@@ -3114,8 +3108,7 @@ h2 {
   .brand {
     gap: 8px;
   }
-  .desktop-nav,
-  .github-link {
+  .desktop-nav {
     display: none;
   }
   .mobile-menu-button {
