@@ -53,13 +53,32 @@ Windows 测试默认使用已安装的 Chrome。其他系统请先执行 `npx pl
 
 ## 发布到 GitHub Pages
 
-仓库已提供工作流模板 `deployment/github-pages.yml`。准备好正式内容后：
+本站使用 GitHub Pages 的分支发布模式：`main` 保存源码，`gh-pages` 保存构建后的静态网站。
+
+网站地址：<https://crychic-sakiko-togawa-214.github.io/llm_club_page/>
+
+更新内容后，在已经完成 GitHub Git 认证的终端执行：
+
+```bash
+git add .
+git commit -m "Update club website"
+git push origin main
+npm run deploy
+```
+
+`npm run deploy` 会构建网站，再以临时 Git 索引更新 `gh-pages`。它不切换当前分支、不修改源码暂存区、不强制推送，也不保存访问令牌。相同构建不会重复创建部署提交。GitHub Pages 会在发布分支更新后重新部署。
+
+首次设置时，在仓库 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，分支选择 `gh-pages`、目录选择 `/ (root)`。`public/.nojekyll` 会随构建输出，避免静态文件被 Jekyll 处理。
+
+### 可选：改为 GitHub Actions 自动发布
+
+仓库还保留了工作流模板 `deployment/github-pages.yml`。若以后希望推送源码后自动部署：
 
 1. 将模板复制到 `.github/workflows/deploy.yml`，使用具备工作流写入权限的身份提交并推送到 `main` 分支。经典个人令牌需要额外具有 `workflow` 权限；仅有 `repo` 权限可以上传网站源码，但不能创建这个工作流。
 2. 在 GitHub 仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。
 3. 启用后，工作流会构建并发布 `dist/`，也可以在 Actions 页手动触发。
 
-Vite 使用相对资源路径，支持 GitHub Pages 项目子路径。源码上传不会自动启用网页托管；实际发布状态以仓库 Pages 设置及 Actions 结果为准。`dist/` 也可部署至其他静态网站托管服务。
+Vite 使用相对资源路径，支持 GitHub Pages 项目子路径。实际发布状态以仓库 Pages 设置及部署结果为准。`dist/` 也可部署至其他静态网站托管服务。
 
 ## 交互与无障碍
 
